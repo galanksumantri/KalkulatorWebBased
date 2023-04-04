@@ -87,7 +87,9 @@ operators.forEach((operator) => {
 
 percentage.addEventListener("click", () => {
     percent(currentNumber)
-    updateScreen(prevNumber+calculationOperator+currentNumber)
+    if (calculationOperator === "") {
+        updateScreen(currentNumber)
+    } else updateScreen(prevNumber+calculationOperator+currentNumber)
 })
 
 equalSign.addEventListener('click', () => {
