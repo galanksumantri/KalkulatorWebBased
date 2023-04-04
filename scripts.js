@@ -25,6 +25,7 @@ const inputNumber = (number) => {
 
 const operators = document.querySelectorAll(".operator")
 const equalSign = document.querySelector(".equal-sign")
+const percentage = document.querySelector(".percentage")
 
 operators.forEach((operator) => {
     operator.addEventListener("click", (event) => {
@@ -41,10 +42,19 @@ const inputOperator = (operator) => {
     currentNumber = '0'
 }
 
+percentage.addEventListener("click", () => {
+    percent(currentNumber)
+    updateScreen(prevNumber+calculationOperator+currentNumber)
+})
+
 equalSign.addEventListener('click', () => {
     calculate()
     updateScreen(currentNumber)
 })
+
+const percent = (number) => {
+    currentNumber = parseFloat(number)/100
+}
 
 const calculate = () => {
     let result = ''
@@ -87,7 +97,7 @@ const decimal = document.querySelector(".decimal")
 
 decimal.addEventListener("click", (event) => {
     inputDecimal(event.target.value)
-    updateScreen(currentNumber)
+    updateScreen(prevNumber+calculationOperator+currentNumber)
 })
 
 const inputDecimal = (dot) => {
