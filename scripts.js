@@ -7,7 +7,7 @@ let currentNumber = '0'
 numbers.forEach((number) => {
     number.addEventListener("click", (event) => {
         inputNumber(event.target.value)
-        updateScreen(currentNumber)
+        updateScreen(prevNumber+calculationOperator+currentNumber)
     })
 })
 
@@ -29,6 +29,7 @@ const equalSign = document.querySelector(".equal-sign")
 operators.forEach((operator) => {
     operator.addEventListener("click", (event) => {
         inputOperator(event.target.value)
+        updateScreen(prevNumber+calculationOperator)
     })
 })
 
