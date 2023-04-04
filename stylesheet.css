@@ -1,7 +1,8 @@
 .calculator {
     text-align: center;
     margin: 0 auto;
-    padding-top: 200px;
+    padding-top: 3%;
+    max-width: 640px;
 }
 
 .calculator-screen {
