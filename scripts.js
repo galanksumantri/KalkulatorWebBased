@@ -24,3 +24,45 @@ const inputNumber = (number) => {
 }
 
 const operators = document.querySelectorAll(".operator")
+const equalSign = document.querySelector(".equal-sign")
+
+operators.forEach((operator) => {
+    operator.addEventListener("click", (event) => {
+        inputOperator(event.target.value)
+    })
+})
+
+const inputOperator = (operator) => {
+    prevNumber = currentNumber
+    calculationOperator = operator
+    currentNumber = ''
+}
+
+equalSign.addEventListener('click', () => {
+    calculate()
+    updateScreen(currentNumber)
+})
+
+const calculate = () => {
+    let result = ''
+    let prev = parseInt(prevNumber)
+    let current = parseInt(currentNumber)
+    switch(calculationOperator) {
+        case "+":
+            result = prev + current
+            break
+        case "-":
+            result = prev - current
+            break
+        case "*":
+            result = prev * current
+            break
+        case "/":
+            result = prev / current
+            break
+        default:
+            break
+    }
+    currentNumber = result
+    calculationOperator = ''
+}
